@@ -1,31 +1,32 @@
 import { useState } from "react";
+import "../style/CreatePost.css";
 const CreatePost = () => {
   const [title, setTitle] = useState<string>("");
   const [mainText, setMainText] = useState<string>("");
   return (
-    <div>
-      <h2>記事を投稿する</h2>
-      <label>
-        タイトル
+    <section>
+      <div className="create-post">
+        <h2 className="postElement">記事を投稿する</h2>
+        <label className="postElement">タイトル</label>
         <input
+          className="postElement"
           type="text"
           value={title}
           onChange={(titleText) => {
             setTitle(titleText.target.value);
           }}
         ></input>
-      </label>
-      <label>
-        投稿
+        <label className="postElement">投稿</label>
         <textarea
+          className="postElement"
           value={mainText}
           onChange={(maintext) => {
             setMainText(maintext.target.value);
           }}
         ></textarea>
-      </label>
-      <button>投稿する</button>
-    </div>
+        <button className="createPostButton">投稿する</button>
+      </div>
+    </section>
   );
 };
 
