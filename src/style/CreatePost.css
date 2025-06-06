@@ -1,0 +1,32 @@
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.create-post {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  gap: 5px;
+}
+.postElement {
+  margin: 10px;
+}
+
+input {
+  width: 450px;
+}
+
+textarea {
+  width: 450px;
+  height: 100px;
+}
+
+.createPostButton {
+  margin: 10px;
+  width: 450px;
+  color: white;
+  background-color: rgb(82, 82, 198);
+}
