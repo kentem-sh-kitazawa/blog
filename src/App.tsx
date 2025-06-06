@@ -10,7 +10,7 @@ function App() {
   const [isAuth, setisAuth] = useState<any>(false);
   return (
     <Router>
-      <Navbar />
+      <Navbar isAuth={isAuth} />
       <Routes>
         {/* URLの最後にpathを付け足すと行きたいコンポーネントを指定できる*/}
         <Route path="/" element={<Home />}></Route>
