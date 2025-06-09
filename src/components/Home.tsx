@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import "../style/Home.css";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 const Home = () => {
   // const [posts, setPosts] = useState<PostTextType[]>([]);
   const [posts, setPosts] = useState<any[]>([]);
@@ -19,7 +19,6 @@ const Home = () => {
   //   const parsedPosts: PostTextType[] = savePosts ? JSON.parse(savePosts) : [];
   //   setPosts(parsedPosts);
   // }, []);
-
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(collection(db, "posts"));
@@ -48,13 +47,16 @@ const Home = () => {
           <div className="postTextContainer">{post.mainText}</div>
           <div className="nameAndDeleteButton">
             <h3>{post.author.username}</h3>
-            <button
-              onClick={() => {
-                handleDelete(post.id);
-              }}
-            >
-              削除
-            </button>
+            {/* ポストのidと現在ログインしているユーザーのid */}
+            {post.author.id === auth.currentUser?.uid && (
+              <button
+                onClick={() => {
+                  handleDelete(post.id);
+                }}
+              >
+                削除
+              </button>
+            )}
           </div>
         </div>
       ))}
