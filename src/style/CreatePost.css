@@ -1,32 +1,27 @@
 section {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
 
 .create-post {
   width: 500px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
   border: 1px solid;
-  gap: 5px;
-}
-.postElement {
-  margin: 10px;
+  padding: 10px;
+  margin: auto;
 }
 
 input {
-  width: 450px;
+  width: 100%;
 }
 
 textarea {
-  width: 450px;
-  height: 100px;
+  width: 100%;
 }
 
-.createPostButton {
-  margin: 10px;
-  width: 450px;
+.create-Post-Button {
+  width: 100%;
   color: white;
   background-color: rgb(82, 82, 198);
 }
