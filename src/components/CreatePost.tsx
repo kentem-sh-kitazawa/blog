@@ -2,12 +2,14 @@ import { useState } from "react";
 import "../style/CreatePost.css";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export type PostTextType = {
   title: string;
   mainText: string;
 };
 const CreatePost = () => {
+  const navigate = useNavigate();
   //titleを保持するstate
   const [title, setTitle] = useState<string>("");
   //mainTextを保持するstate
@@ -22,6 +24,7 @@ const CreatePost = () => {
         id: auth.currentUser?.uid,
       },
     });
+    navigate("/");
   };
 
   return (
