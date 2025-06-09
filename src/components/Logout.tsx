@@ -1,10 +1,10 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.tsx";
 import { useNavigate } from "react-router-dom";
-import type { Dispatch } from "react";
+import type { Dispatch, SetStateAction } from "react";
 
 type Props = {
-  setIsAuth: Dispatch<React.SetStateAction<boolean>>;
+  setIsAuth: Dispatch<SetStateAction<boolean>>;
 };
 
 const Logout = ({ setIsAuth: setIsAuth }: Props) => {
