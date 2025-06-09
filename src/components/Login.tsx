@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import type { Dispatch } from "react";
-
 import { signInWithPopup } from "firebase/auth";
+
 import { auth, provider } from "../firebase.tsx";
 
 type Props = {
