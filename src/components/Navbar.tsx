@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import "../style/Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,
   faFilePen,
   faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+
+import "../style/Navbar.css";
 
 const Navbar = ({ isAuth }: any) => {
   return (
