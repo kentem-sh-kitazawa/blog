@@ -1,5 +1,4 @@
 import { signInWithPopup } from "firebase/auth";
-import React from "react";
 import { auth, provider } from "../firebase.tsx";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +10,7 @@ const Login = ({ setisAuth }: Props) => {
   const navigate = useNavigate();
   const loginInWithGoogle = () => {
     //Googleでログイン
-    signInWithPopup(auth, provider).then((result) => {
+    signInWithPopup(auth, provider).then(() => {
       localStorage.setItem("isAuth", "true"); //ローカルストレージには文字列として保存されるため
       setisAuth(true);
       navigate("/");
