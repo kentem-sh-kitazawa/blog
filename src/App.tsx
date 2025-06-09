@@ -4,10 +4,10 @@ import CreatePost from "./components/CreatePost";
 import Login from "./components/Login";
 import Logout from "./components/Logout.tsx";
 import Navbar from "./components/Navbar";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
-  const [isAuth, setisAuth] = useState<any>(false);
+  const [isAuth, setisAuth] = useState<any>(localStorage.getItem("isAuth"));
   return (
     <Router>
       <Navbar isAuth={isAuth} />
