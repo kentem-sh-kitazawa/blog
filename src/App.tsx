@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
 import Home from "./components/Home";
 import CreatePost from "./components/CreatePost";
 import Login from "./components/Login";
 import Logout from "./components/Logout.tsx";
 import Navbar from "./components/Navbar";
-import { useState } from "react";
 
 function App() {
   const [isAuth, setisAuth] = useState<string | null>(
