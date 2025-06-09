@@ -10,7 +10,7 @@ type Props = {
   isAuth: boolean;
 };
 
-const CreatePost = ({ isAuth }: any) => {
+const CreatePost = ({ isAuth }: Props) => {
   const navigate = useNavigate();
   //titleを保持するstate
   const [title, setTitle] = useState<string>("");
