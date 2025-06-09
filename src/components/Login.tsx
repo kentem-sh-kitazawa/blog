@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import type { Dispatch } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { signInWithPopup } from "firebase/auth";
 
 import { auth, provider } from "../firebase.tsx";
 
 type Props = {
-  setIsAuth: Dispatch<React.SetStateAction<boolean>>;
+  setIsAuth: Dispatch<SetStateAction<boolean>>;
 };
 
 const Login = ({ setIsAuth: setIsAuth }: Props) => {
