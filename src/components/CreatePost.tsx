@@ -6,10 +6,9 @@ import { auth, db } from "../firebase";
 
 import "../style/CreatePost.css";
 
-// export type PostTextType = {
-//   title: string;
-//   mainText: string;
-// };
+type Props = {
+  isAuth: boolean;
+};
 
 const CreatePost = ({ isAuth }: any) => {
   const navigate = useNavigate();
@@ -55,26 +54,10 @@ const CreatePost = ({ isAuth }: any) => {
         <textarea
           className="postElement"
           value={mainText}
-          onChange={(maintext) => {
-            setMainText(maintext.target.value);
-          }}
-        ></textarea>
-        <button
-          className="createPostButton"
-          onClick={
-            createPost
-            // () => {
-            //ローカルストレージに保存する版
-            // const posts: PostTextType = { title: title, mainText: mainText };
-            // const prevPosts = localStorage.getItem("posts");
-            // const parsePosts = prevPosts ? JSON.parse(prevPosts) : [];
-            // const updatePosts = [...parsePosts, posts];
-            // localStorage.setItem("posts", JSON.stringify(updatePosts));
-            // setTitle("");
-            // setMainText("");
-            // }
-          }
-        >
+        rows={5}
+        onChange={(maintext) => setMainText(maintext.target.value)}
+      />
+      <button className="create-Post-Button" onClick={createPost}>
           投稿する
         </button>
       </div>
