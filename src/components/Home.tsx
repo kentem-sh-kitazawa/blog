@@ -1,14 +1,16 @@
-// import type { PostTextType } from "./CreatePost";
 import { useEffect, useState } from "react";
 import "../style/Home.css";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { auth, db } from "../firebase";
+
+// import type { PostTextType } from "./CreatePost";
+
 const Home = () => {
-  // const [posts, setPosts] = useState<PostTextType[]>([]);
   const [posts, setPosts] = useState<any[]>([]);
+  // const [posts, setPosts] = useState<PostTextType[]>([]);
 
   type PostsType = {
-    author: { id: string; username: string };
+    author: { username: string; id: string };
     id: string;
     mainText: string;
     title: string;
@@ -19,6 +21,7 @@ const Home = () => {
   //   const parsedPosts: PostTextType[] = savePosts ? JSON.parse(savePosts) : [];
   //   setPosts(parsedPosts);
   // }, []);
+
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(collection(db, "posts"));
@@ -39,7 +42,7 @@ const Home = () => {
 
   return (
     <div className="homePage">
-      {posts.map((post) => (
+      {posts.map((post: PostsType) => (
         <div className="postContents" key={post.id}>
           <div className="postHeder">
             <h1>{post.title}</h1>
