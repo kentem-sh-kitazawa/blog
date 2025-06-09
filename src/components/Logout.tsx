@@ -13,6 +13,7 @@ const Logout = ({ setisAuth }: Props) => {
     signOut(auth).then(() => {
       localStorage.clear();
       setisAuth(false);
+      // ログイン画面に移動
       navigate("/login");
     });
   };
