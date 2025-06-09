@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "../style/Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +14,7 @@ const Navbar = ({ isAuth }: any) => {
         <FontAwesomeIcon icon={faHouse} />
         ホーム
       </Link>
+      {/* ログイン状態でボタンの表示を切り替える処理 */}
       {!isAuth ? (
         <Link to="/login">
           <FontAwesomeIcon icon={faArrowRightFromBracket} />
