@@ -11,6 +11,7 @@ function App() {
   const [isAuth, setIsAuth] = useState<boolean>(
     localStorage.getItem("isAuth") === "true"
   );
+
   return (
     <Router>
       <Navbar isAuth={isAuth} />
@@ -18,13 +19,13 @@ function App() {
         {/* URLの最後にpathを付け足すと行きたいコンポーネントを指定できる*/}
         <Route path="/" element={<Home />}></Route>
         <Route
-          path="/createpost"
+          path="/createPost"
           element={<CreatePost isAuth={isAuth} />}
         ></Route>
-        <Route path="/login" element={<Login setisAuth={setisAuth} />}></Route>
+        <Route path="/login" element={<Login setisAuth={setIsAuth} />}></Route>
         <Route
           path="/logout"
-          element={<Logout setisAuth={setisAuth} />}
+          element={<Logout setisAuth={setIsAuth} />}
         ></Route>
       </Routes>
     </Router>

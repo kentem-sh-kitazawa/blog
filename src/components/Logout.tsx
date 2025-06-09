@@ -1,18 +1,19 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.tsx";
 import { useNavigate } from "react-router-dom";
+import type { Dispatch } from "react";
 
 type Props = {
-  setisAuth: any;
+  setIsAuth: Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Logout = ({ setisAuth }: Props) => {
+const Logout = ({ setIsAuth: setIsAuth }: Props) => {
   const navigate = useNavigate();
   const logout = () => {
     //ログアウト
     signOut(auth).then(() => {
       localStorage.clear();
-      setisAuth(false);
+      setIsAuth(false);
       // ログイン画面に移動
       navigate("/login");
     });

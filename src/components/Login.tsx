@@ -6,13 +6,13 @@ type Props = {
   setisAuth: any;
 };
 
-const Login = ({ setisAuth }: Props) => {
+const Login = ({ setIsAuth: setIsAuth }: Props) => {
   const navigate = useNavigate();
   const loginInWithGoogle = () => {
     //Googleでログイン
     signInWithPopup(auth, provider).then(() => {
       localStorage.setItem("isAuth", "true"); //ローカルストレージには文字列として保存されるため
-      setisAuth(true);
+      setIsAuth(true);
       navigate("/");
     });
   };
