@@ -3,7 +3,7 @@ import { auth, provider } from "../firebase.tsx";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
-  setisAuth: any;
+  setIsAuth: Dispatch<React.SetStateAction<boolean>>;
 };
 
 const Login = ({ setIsAuth: setIsAuth }: Props) => {
