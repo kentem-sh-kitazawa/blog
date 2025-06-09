@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../style/CreatePost.css";
+import { addDoc, collection } from "firebase/firestore";
+import { auth, db } from "../firebase";
 
 export type PostTextType = {
   title: string;
@@ -10,6 +12,18 @@ const CreatePost = () => {
   const [title, setTitle] = useState<string>("");
   //mainTextを保持するstate
   const [mainText, setMainText] = useState<string>("");
+
+  const createPost = async () => {
+    await addDoc(collection(db, "posts"), {
+      title: title,
+      mainText: mainText,
+      author: {
+        username: auth.currentUser?.displayName,
+        id: auth.currentUser?.uid,
+      },
+    });
+  };
+
   return (
     <section>
       <div className="create-post">
@@ -33,15 +47,19 @@ const CreatePost = () => {
         ></textarea>
         <button
           className="createPostButton"
-          onClick={() => {
-            const posts: PostTextType = { title: title, mainText: mainText };
-            const prevPosts = localStorage.getItem("posts");
-            const parsePosts = prevPosts ? JSON.parse(prevPosts) : [];
-            const updatePosts = [...parsePosts, posts];
-            localStorage.setItem("posts", JSON.stringify(updatePosts));
-            setTitle("");
-            setMainText("");
-          }}
+          onClick={
+            createPost
+            // () => {
+            //ローカルストレージに保存する版
+            // const posts: PostTextType = { title: title, mainText: mainText };
+            // const prevPosts = localStorage.getItem("posts");
+            // const parsePosts = prevPosts ? JSON.parse(prevPosts) : [];
+            // const updatePosts = [...parsePosts, posts];
+            // localStorage.setItem("posts", JSON.stringify(updatePosts));
+            // setTitle("");
+            // setMainText("");
+            // }
+          }
         >
           投稿する
         </button>
