@@ -22,10 +22,10 @@ function App() {
           path="/createPost"
           element={<CreatePost isAuth={isAuth} />}
         ></Route>
-        <Route path="/login" element={<Login setisAuth={setIsAuth} />}></Route>
+        <Route path="/login" element={<Login setIsAuth={setIsAuth} />}></Route>
         <Route
           path="/logout"
-          element={<Logout setisAuth={setIsAuth} />}
+          element={<Logout setIsAuth={setIsAuth} />}
         ></Route>
       </Routes>
     </Router>
