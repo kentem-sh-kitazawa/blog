@@ -1,0 +1,33 @@
+.posts {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border: 1px solid;
+    border-radius: 5%;
+    margin: 10px;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postDeleteButton {
+  width: 70px;
+  height: 30px;
+}
+
+li h2 {
+  text-align: center;
+}
