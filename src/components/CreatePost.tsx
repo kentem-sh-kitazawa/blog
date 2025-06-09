@@ -1,7 +1,9 @@
-import { addDoc, collection } from "firebase/firestore";
-import { auth, db } from "../firebase";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
+
+import { auth, db } from "../firebase";
+
 import "../style/CreatePost.css";
 
 // export type PostTextType = {
