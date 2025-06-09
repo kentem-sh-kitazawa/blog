@@ -38,30 +38,24 @@ const CreatePost = ({ isAuth }: Props) => {
   }, []);
 
   return (
-    <section>
-      <div className="create-post">
-        <h2 className="postElement">記事を投稿する</h2>
-        <label className="postElement">タイトル</label>
-        <input
-          className="postElement"
-          type="text"
-          value={title}
-          onChange={(titleText) => {
-            setTitle(titleText.target.value);
-          }}
-        ></input>
-        <label className="postElement">投稿</label>
-        <textarea
-          className="postElement"
-          value={mainText}
+    <div className="create-post">
+      <h2>記事を投稿する</h2>
+      <label>タイトル</label>
+      <input
+        type="text"
+        value={title}
+        onChange={(titleText) => setTitle(titleText.target.value)}
+      />
+      <label>投稿</label>
+      <textarea
+        value={mainText}
         rows={5}
         onChange={(maintext) => setMainText(maintext.target.value)}
       />
       <button className="create-Post-Button" onClick={createPost}>
-          投稿する
-        </button>
-      </div>
-    </section>
+        投稿する
+      </button>
+    </div>
   );
 };
 
