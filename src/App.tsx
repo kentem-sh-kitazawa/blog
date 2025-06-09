@@ -8,8 +8,8 @@ import Logout from "./components/Logout.tsx";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [isAuth, setisAuth] = useState<string | null>(
-    localStorage.getItem("isAuth")
+  const [isAuth, setIsAuth] = useState<boolean>(
+    localStorage.getItem("isAuth") === "true"
   );
   return (
     <Router>
