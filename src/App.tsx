@@ -14,7 +14,10 @@ function App() {
       <Routes>
         {/* URLの最後にpathを付け足すと行きたいコンポーネントを指定できる*/}
         <Route path="/" element={<Home />}></Route>
-        <Route path="/createpost" element={<CreatePost />}></Route>
+        <Route
+          path="/createpost"
+          element={<CreatePost isAuth={isAuth} />}
+        ></Route>
         <Route path="/login" element={<Login setisAuth={setisAuth} />}></Route>
         <Route
           path="/logout"
