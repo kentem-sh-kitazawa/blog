@@ -8,7 +8,11 @@ import {
 
 import "../style/Navbar.css";
 
-const Navbar = ({ isAuth }: any) => {
+type Props = {
+  isAuth: boolean;
+};
+
+const Navbar = ({ isAuth }: Props) => {
   return (
     <nav>
       <Link to="/">
