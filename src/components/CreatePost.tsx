@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
-import "../style/CreatePost.css";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db } from "../firebase";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../style/CreatePost.css";
 
-export type PostTextType = {
-  title: string;
-  mainText: string;
-};
+// export type PostTextType = {
+//   title: string;
+//   mainText: string;
+// };
+
 const CreatePost = ({ isAuth }: any) => {
   const navigate = useNavigate();
   //titleを保持するstate
@@ -15,6 +16,7 @@ const CreatePost = ({ isAuth }: any) => {
   //mainTextを保持するstate
   const [mainText, setMainText] = useState<string>("");
 
+  //firebaseにデータを追加する
   const createPost = async () => {
     await addDoc(collection(db, "posts"), {
       title: title,
@@ -27,6 +29,7 @@ const CreatePost = ({ isAuth }: any) => {
     navigate("/");
   };
 
+  //ログインしていないときにはログイン画面に移動する処理
   useEffect(() => {
     if (!isAuth) {
       navigate("/login");
