@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../style/CreatePost.css";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db } from "../firebase";
@@ -8,7 +8,7 @@ export type PostTextType = {
   title: string;
   mainText: string;
 };
-const CreatePost = () => {
+const CreatePost = ({ isAuth }: any) => {
   const navigate = useNavigate();
   //titleを保持するstate
   const [title, setTitle] = useState<string>("");
@@ -26,6 +26,12 @@ const CreatePost = () => {
     });
     navigate("/");
   };
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <section>
