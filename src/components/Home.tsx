@@ -1,7 +1,7 @@
 // import type { PostTextType } from "./CreatePost";
 import { useEffect, useState } from "react";
 import "../style/Home.css";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 const Home = () => {
   // const [posts, setPosts] = useState<PostTextType[]>([]);
@@ -33,6 +33,11 @@ const Home = () => {
     getPosts();
   }, []);
 
+  const handleDelete = async (id: string) => {
+    await deleteDoc(doc(db, "posts", id));
+    window.location.href = "/";
+  };
+
   return (
     <div className="homePage">
       {posts.map((post) => (
@@ -43,7 +48,13 @@ const Home = () => {
           <div className="postTextContainer">{post.mainText}</div>
           <div className="nameAndDeleteButton">
             <h3>{post.author.username}</h3>
-            <button>削除</button>
+            <button
+              onClick={() => {
+                handleDelete(post.id);
+              }}
+            >
+              削除
+            </button>
           </div>
         </div>
       ))}
