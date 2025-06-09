@@ -18,9 +18,10 @@ const Home = () => {
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(collection(db, "posts"));
+      console.log(data);
       setPosts(
         data.docs.map((doc) => ({
-          ...doc.data(),
+          ...(doc.data() as PostsType[]),
           id: doc.id,
         }))
       );
