@@ -3,11 +3,7 @@ import "../style/Home.css";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
-// import type { PostTextType } from "./CreatePost";
-
-const Home = () => {
-  const [posts, setPosts] = useState<any[]>([]);
-  // const [posts, setPosts] = useState<PostTextType[]>([]);
+import "../style/Home.css";
 
   type PostsType = {
     author: { username: string; id: string };
@@ -16,11 +12,8 @@ const Home = () => {
     title: string;
   };
 
-  // useEffect(() => {
-  //   const savePosts = localStorage.getItem("posts");
-  //   const parsedPosts: PostTextType[] = savePosts ? JSON.parse(savePosts) : [];
-  //   setPosts(parsedPosts);
-  // }, []);
+const Home = () => {
+  const [posts, setPosts] = useState<any[]>([]);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -64,33 +57,6 @@ const Home = () => {
         </div>
       ))}
     </div>
-    //ローカルストレージ版
-    // <div className="posts">
-    //   <ul>
-    //     {posts.map((post, index) => (
-    //       <li key={index}>
-    //         <h2>{post.title}</h2>
-    //         <p>{post.mainText}</p>
-    //         <div className="footer">
-    //           <h3>＠名前</h3>
-    //           <button
-    //             className="postDeleteButton"
-    //             onClick={() => {
-    //               setPosts((prev) => {
-    //                 const updatePosts = [...prev];
-    //                 updatePosts.splice(index, 1);
-    //                 localStorage.setItem("posts", JSON.stringify(updatePosts));
-    //                 return updatePosts;
-    //               });
-    //             }}
-    //           >
-    //             削除
-    //           </button>
-    //         </div>
-    //       </li>
-    //     ))}
-    //   </ul>
-    // </div>
   );
 };
 
